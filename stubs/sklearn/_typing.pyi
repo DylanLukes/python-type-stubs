@@ -16,7 +16,7 @@ Decimal = decimal.Decimal
 PythonScalar = str | int | float | bool
 
 ArrayLike = numpy.typing.ArrayLike
-MatrixLike = np.ndarray | pd.DataFrame | spmatrix
+MatrixLike = np.ndarray[object, object] | pd.DataFrame | spmatrix
 FileLike = io.IOBase
 PathLike = str
 Int = int | np.int8 | np.int16 | np.int32 | np.int64
