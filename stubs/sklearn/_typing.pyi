@@ -8,6 +8,10 @@ import io
 import numpy as np
 import numpy.typing
 import pandas as pd
+
+import polars as pl
+from .base import BaseEstimator, ClassifierMixin, RegressorMixin
+
 from scipy.sparse import spmatrix
 
 from .base import BaseEstimator, ClassifierMixin, RegressorMixin
@@ -16,14 +20,15 @@ Decimal = decimal.Decimal
 PythonScalar = str | int | float | bool
 
 ArrayLike = numpy.typing.ArrayLike
-MatrixLike = np.ndarray[object, object] | pd.DataFrame | spmatrix
+MatrixLike = np.ndarray[object, object] | pd.DataFrame | pl.DataFrame | spmatrix
 FileLike = io.IOBase
 PathLike = str
 Int = int | np.int8 | np.int16 | np.int32 | np.int64
 Float = float | np.float16 | np.float32 | np.float64
 
 PandasScalar = pd.Period | pd.Timestamp | pd.Timedelta | pd.Interval
-Scalar = PythonScalar | PandasScalar
+PolarsScalar = pl.Date | pl.Datetime | pl.Time | pl.Duration
+Scalar = PythonScalar | PandasScalar | PolarsScalar
 
 Estimator = BaseEstimator
 Classifier = ClassifierMixin
